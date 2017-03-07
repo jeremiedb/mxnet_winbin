@@ -1,7 +1,7 @@
 # mxnet_winbin
-MXNET R Package binaries for Windows
 
-Last update on the 20170304 build
+> MXNET R Package binaries for Windows.  
+> Last update from the 20170304 build.
 
 ###Procedure for building R-package from pre-build Windows library
 
