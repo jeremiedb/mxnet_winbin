@@ -3,9 +3,16 @@
 > MXNET R Package binaries for Windows.  
 > Last update from the 20170304 build.
 
+Package can be installed using the following command: 
+
+```
+install.packages("https://github.com/jeremiedb/mxnet_winbin/raw/master/mxnet.zip", repos = NULL)
+```
+
 ###Procedure for building R-package from pre-build Windows library
 
 Download latest build from: https://github.com/yajiedesign/mxnet/releases
+
 
 Put all the dll in the folder: 
   `R-package/inst/libs/x64/`   
