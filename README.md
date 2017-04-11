@@ -1,7 +1,7 @@
 # mxnet_winbin
 
 > MXNET R Package binaries for Windows.  
-> Last update from the 20170304 build.
+> Last update from the 20170411 build. Version 0.9.5
 
 Package can be installed using the following command: 
 
