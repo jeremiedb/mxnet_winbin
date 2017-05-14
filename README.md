@@ -8,7 +8,7 @@ Package can be installed using the following command:
 install.packages("https://github.com/jeremiedb/mxnet_winbin/raw/master/mxnet.zip", repos = NULL)
 ```
 
-###Procedure for building R-package from pre-build Windows library
+### Procedure for building R-package from pre-build Windows library
 
 Download latest build from: https://github.com/yajiedesign/mxnet/releases
 
@@ -40,7 +40,9 @@ import(Rcpp)
 import(methods)
 ```
 
-Building the R-package
+#### Building the R-package
+
+In bash with admin rights: 
 
 ```
 cd R-package
