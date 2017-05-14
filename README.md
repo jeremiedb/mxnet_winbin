@@ -1,7 +1,7 @@
 # mxnet_winbin
 
 > MXNET R Package binaries for Windows.  
-> Last update from the 20170411 build. Version 0.9.5
+> Last update from the 20170514 build. Version 0.9.5
 
 Package can be installed using the following command: 
 
@@ -13,11 +13,8 @@ install.packages("https://github.com/jeremiedb/mxnet_winbin/raw/master/mxnet.zip
 
 Download latest build from: https://github.com/yajiedesign/mxnet/releases
 
-
-Put all the dll in the folder: 
-  `R-package/inst/libs/x64/`   
-      - libmxnet.so  
-      - libmxnet.dll
+Copy the mxnet dll in the folder `R-package/inst/libs/x64/`:     
+    - build/libmxnet.dll
 
 Dependency libraries should also be present in `R-package/inst/libs/` and taken from the `vc14 base package` from the daily releases: 
     - opencv_ffmpeg320_64.dll  
@@ -28,10 +25,11 @@ Dependency libraries should also be present in `R-package/inst/libs/` and taken 
     - libgcc_s_seh-1.dll  
     - unzip32.dll
 
-Then copy include/mxnet, include/dlmc and nnvm/include/nnvm folders in: 
-R-package/inst/include/
-
-There should be the dlmc, mxnet and nnvm folders
+Then copy the following folders in R-package/inst/include/:  
+    - include/mxnet  
+    - include/dlmc  
+    - include/mshadow  
+    - nnvm/include/nnvm
 
 Initial NAMESPACE in R-Package:  
 import(Rcpp)  
@@ -50,4 +48,3 @@ Rscript -e "require(roxygen2); roxygen2::roxygenise(\"R-package\")"
 R CMD build --no-build-vignettes R-package
 R CMD INSTALL --no-multiarch R-package
 ```
-
