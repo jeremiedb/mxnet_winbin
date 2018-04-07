@@ -1,6 +1,6 @@
 # MXNET R Package binaries for Windows
 
-> Last update from the 20180308 build. Version 1.2.0
+> Last update from the 20180329 build. Version 1.2.0
 
 Package can be installed using the following command: 
 
@@ -40,18 +40,22 @@ import(Rcpp)
 import(methods)
 ```
 
+### Temporary patch
+
+`im2rec` currently results in crashes during the build. 
+Remove the `im2rec.h` and `im2rec.cc` files in `src/` and comment out the two im2rec lines in `/src/mxnet.cc`. 
+
 #### Building the R-package
 
 In bash with admin rights: 
 
 ```
-cd R-package
-Rscript -e "library(devtools); library(methods); options(repos=c(CRAN='https://cran.rstudio.com')); install_deps(dependencies = TRUE)"
-cd ..
-R CMD INSTALL --no-multiarch R-package
-Rscript -e "require(mxnet); mxnet:::mxnet.export(\"R-package\")"
+Rscript -e "if(!require(devtools)){install.packages('devtools', repo = 'https://cloud.r-project.org/')}"
+Rscript -e "library(devtools); library(methods); options(repos=c(CRAN='https://cloud.r-project.org/')); install_deps(pkg='R-package', dependencies = TRUE)"
+R CMD INSTALL R-package
+Rscript -e "require(mxnet); mxnet:::mxnet.export('R-package')"
 rm -rf R-package/NAMESPACE
-Rscript -e "require(roxygen2); roxygen2::roxygenise(\"R-package\")"
-R CMD build --no-build-vignettes R-package
-R CMD INSTALL --no-multiarch R-package
+Rscript -e "if (!require('roxygen2')||packageVersion('roxygen2')!= '5.0.1'){devtools::install_version('roxygen2',version='5.0.1',repo='https://cloud.r-project.org/',quiet=TRUE)}"
+Rscript -e "require(roxygen2); roxygen2::roxygenise('R-package')"
+R CMD INSTALL R-package
 ```
