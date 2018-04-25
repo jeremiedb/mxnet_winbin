@@ -1,6 +1,6 @@
 # MXNET R Package binaries for Windows
 
-> Last update from the 20180329 build. Version 1.2.0
+> Last update from the 20180424 build. Version 1.2.0. Build on R 3.5.0.
 
 Package can be installed using the following command: 
 
@@ -54,7 +54,7 @@ Rscript -e "if(!require(devtools)){install.packages('devtools', repo = 'https://
 Rscript -e "library(devtools); library(methods); options(repos=c(CRAN='https://cloud.r-project.org/')); install_deps(pkg='R-package', dependencies = TRUE)"
 R CMD INSTALL R-package
 Rscript -e "require(mxnet); mxnet:::mxnet.export('R-package')"
-rm -rf R-package/NAMESPACE
+rm -r R-package/NAMESPACE
 Rscript -e "if (!require('roxygen2')||packageVersion('roxygen2')!= '5.0.1'){devtools::install_version('roxygen2',version='5.0.1',repo='https://cloud.r-project.org/',quiet=TRUE)}"
 Rscript -e "require(roxygen2); roxygen2::roxygenise('R-package')"
 R CMD INSTALL R-package
