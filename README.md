@@ -1,14 +1,22 @@
 # MXNET R Package binaries for Windows
 
-> Last update from the 20180424 build. Version 1.2.0. Build on R 3.5.0.
+> Last update from the 20180507 build. Version 1.2.0. Build on R 3.5.0.
 
-Package can be installed using the following command: 
+
+### CPU
 
 ```
-install.packages("https://github.com/jeremiedb/mxnet_winbin/raw/master/mxnet.zip", repos = NULL)
+install.packages("https://s3.ca-central-1.amazonaws.com/jeremiedb/share/mxnet/CPU/mxnet.zip", repos = NULL)
 ```
 
-### Procedure for building R-package from pre-build Windows library
+### GPU
+
+```
+install.packages("https://s3.ca-central-1.amazonaws.com/jeremiedb/share/mxnet/GPU/mxnet.zip", repos = NULL)
+```
+
+
+### Procedure to build R-package from pre-build Windows library
 
 Download latest build from: https://github.com/yajiedesign/mxnet/releases
 
@@ -16,7 +24,7 @@ Copy the mxnet dll in the folder `R-package/inst/libs/x64/`:
 
 - build/libmxnet.dll
 
-Dependency libraries should also be present in `R-package/inst/libs/` and taken from the `vc14 base package` from the daily releases:  
+Dependency libraries should also be present in `R-package/inst/libs/x64/` and taken from the `vc14 base package` from the daily releases:  
 
 - opencv_ffmpeg320_64.dll  
 - libopenblas.dll  
@@ -26,7 +34,7 @@ Dependency libraries should also be present in `R-package/inst/libs/` and taken 
 - libgcc_s_seh-1.dll  
 - unzip32.dll
 
-Then copy the following folders in `R-package/inst/include/`:  
+Copy the following folders in `R-package/inst/include/`:  
 
 - include/mxnet  
 - include/dlmc  
